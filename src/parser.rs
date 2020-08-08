@@ -8,6 +8,9 @@
 /// them.
 ///
 /// If we find a string with a `#` sign, we wrap it in a `<h1>` tag.
+
+use macroz::tostr;
+
 struct Parser {
     position: usize,
     input: String,
@@ -97,6 +100,8 @@ impl Parser {
     fn parse_line(&mut self) -> String {
         match self.next_char() {
             '#' => self.parse_title(),
+            '-' => self.check_li_char(),
+            '*' => self.check_li_char(),
             _ => self.parse_text(),
         }
     }
@@ -108,5 +113,24 @@ impl Parser {
         let text = self.parse_text();
 
         create_html_element(format!("h{}", pound_sign.len()), text)
+    }
+
+    /// Parses the `-` sign to create a list
+    fn parse_unordered_list(&mut self) -> String {
+        self.consume_char();
+        self.consume_whitespace();
+
+        let text = self.parse_text();
+        create_html_element(tostr!("li"), text)
+    }
+
+    /// Checks if character preceding `-` or `*` is whitespace or text
+    /// to either parse to a `<li>` or just text
+    fn check_li_char(&mut self) -> String {
+        if char::is_whitespace(self.input[self.position + 1..].chars().next().unwrap()) {
+            self.parse_unordered_list()
+        } else {
+            self.parse_text()
+        }
     }
 }
