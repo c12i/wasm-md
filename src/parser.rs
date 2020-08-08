@@ -59,3 +59,13 @@ impl Parser {
         self.consume_while(char::is_whitespace);
     }
 }
+
+/// Creates html elements
+fn create_html_element(tag_name: String, text: String) -> String {
+    format!("<{}>{}<{}/>", tag_name, text, tag_name)
+}
+
+/// Check if we are currently in a new line
+fn is_new_line(c: char) -> bool {
+    c == '\n'
+}
