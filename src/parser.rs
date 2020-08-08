@@ -134,3 +134,11 @@ impl Parser {
         }
     }
 }
+
+/// Call to expose parsing API to Wasm bindgen
+pub fn parse(source: String) -> String {
+    Parser {
+        position: 0,
+        input: source
+    }.parse_lines()
+}
