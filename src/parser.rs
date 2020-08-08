@@ -56,6 +56,6 @@ impl Parser {
 
     /// Consume white-space
     fn consume_whitespace(&mut self) {
-        self.consume_while(char::is_whitespace());
+        self.consume_while(char::is_whitespace);
     }
 }
