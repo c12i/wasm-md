@@ -69,3 +69,44 @@ fn create_html_element(tag_name: String, text: String) -> String {
 fn is_new_line(c: char) -> bool {
     c == '\n'
 }
+
+impl Parser {
+    fn parse_lines(&mut self) -> String {
+        let mut result = String::new();
+
+        loop {
+            self.consume_whitespace();
+
+            if self.end_of_line() {
+                break
+            }
+
+            result.push_str(&self.parse_line());
+        }
+
+        result
+    }
+
+    /// Parses text within a line
+    /// Consumes all chars in a string until it hits a new line
+    fn parse_text(&mut self) -> String {
+        self.consume_while(|c| !is_new_line(c))
+    }
+
+    /// Specifically finds the characters we are looking for
+    fn parse_line(&mut self) -> String {
+        match self.next_char() {
+            '#' => self.parse_title(),
+            _ => self.parse_text(),
+        }
+    }
+
+    /// Parsing the `#` sign to create a title
+    fn parse_title(&mut self) -> String {
+        let pound_sign = self.consume_while(|c| c == '#');
+        self.consume_whitespace();
+        let text = self.parse_text();
+
+        create_html_element(format!("h{}", pound_sign.len()), text)
+    }
+}
