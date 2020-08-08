@@ -2,6 +2,7 @@
 mod parser;
 
 use wasm_bindgen::prelude::*;
+use cfg_if::cfg_if;
 use macroz::tostr;
 
 #[wasm_bindgen]
