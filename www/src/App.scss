@@ -3,8 +3,6 @@
   flex-direction: column;
   height: 100vh;
   width: 100vh;
-  justify-content: center;
-  align-items: center;
   font-family: sans-serif;
 
   .card {
@@ -36,14 +34,15 @@
   }
 
   &.output {
-    padding: 10px;
-    width: 100%;
+    width: 400px;
     height: 400px;
-    overflow: auto;
+    overflow: scroll;
+    border: solid 2px #333;
+  }
+
+  textarea {
+    width: 400px;
+    height: 300px;
   }
 }
 
-textarea {
-  width: 400px;
-  height: 300px;
-}
