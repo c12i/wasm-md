@@ -9,9 +9,6 @@ const App = ({ parse }) => {
 
   const handleChange = (e) => {
     setText(e.target.value);
-  }
-
-  const handleClick = (text) => {
     wasm.then(wasm => {
       setOutput(wasm.parse(text.toString()))
     })
@@ -19,9 +16,8 @@ const App = ({ parse }) => {
 
   return (
   <div className='app'>
-    <textarea id="card" onChange={handleChange} value={text}></textarea>
-    <button id="parse" onClick={(text) => handleClick(text)}>Parse the Text</button>
-    <div id="card">{output}</div>
+    <textarea className="card" onChange={handleChange} value={text}></textarea>
+    <div className="card" dangerouslySetInnerHTML={{ __html: output }} />
   </div>
   )
 };
