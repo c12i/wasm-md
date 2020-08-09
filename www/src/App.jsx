@@ -16,8 +16,9 @@ const App = ({ parse }) => {
 
   return (
   <div className='app'>
-    <textarea className="card" onChange={handleChange} value={text}></textarea>
-    <div className="card" dangerouslySetInnerHTML={{ __html: output }} />
+    <h1>Wasm Markdown Preview</h1>
+    <textarea className="input" onChange={handleChange} value={text} placeholder="Input"></textarea>
+    <div className="output" dangerouslySetInnerHTML={{ __html: output }} />
   </div>
   )
 };
