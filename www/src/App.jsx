@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-import { parse } from "wasm_md";
+const wasm = import("wasm_md");
 
 import './App.scss';
 
-const App = () => {
+const App = ({ parse }) => {
   const [text, setText] = useState("");
   const [output, setOutput] = useState("");
 
   const handleChange = (e) => {
-    setText({searchField: e.target.value});
+    setText(e.target.value);
   }
 
   const handleClick = (text) => {
-    setOutput(parse(text))
+    wasm.then(wasm => {
+      setOutput(wasm.parse(text.toString()))
+    })
   }
 
   return (
   <div className='app'>
-    <textarea id="markdown" onChange={handleChange} value={text}></textarea>
+    <textarea id="card" onChange={handleChange} value={text}></textarea>
     <button id="parse" onClick={(text) => handleClick(text)}>Parse the Text</button>
-    <div id="output">{output}</div>
+    <div id="card">{output}</div>
   </div>
   )
 };

@@ -1,12 +1,13 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin");
 const path = require('path');
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    filename: "index.js",
   },
   module: {
     // define what webpack needs to do based on the files it encounters
@@ -53,5 +54,8 @@ module.exports = {
       template: "./index.html",
     }),
     new CopyWebpackPlugin(["index.html"]),
+    new WasmPackPlugin({	
+      crateDirectory: path.resolve(__dirname, "..")	
+  }),
   ],
 };

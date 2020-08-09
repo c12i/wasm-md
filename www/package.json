@@ -30,10 +30,10 @@
     "sass": "^1.26.10",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.1.4",
-    "@wasm-tool/wasm-pack-plugin": "1.0.1",
     "text-encoding": "^0.7.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.5",
+    "@wasm-tool/wasm-pack-plugin": "1.0.1"
   }
 }
