@@ -1,0 +1,5 @@
+{
+  // preset-env converts es6 to es5
+  // preset-react compiles react to es5 and jsx to html which browser understands
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
