@@ -6,6 +6,8 @@
 </p>
 
 > A simple Rust Web Assembly Markdown parser
+>
+> Will only parse the `#`, `-` and `*` symbols
 
 ## Install
 
