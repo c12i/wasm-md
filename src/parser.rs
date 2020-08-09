@@ -68,6 +68,16 @@ fn create_html_element(tag_name: String, text: String) -> String {
     format!("<{}>{}<{}/>", tag_name, text, tag_name)
 }
 
+fn create_unordered_list(tag_name: String, text: String) -> String {
+    format!("
+        <ul>
+            <{}>
+                {}
+            </{}>
+        </ul>
+    ", tag_name, text, tag_name)
+}
+
 /// Check if we are currently in a new line
 fn is_new_line(c: char) -> bool {
     c == '\n'
@@ -121,7 +131,7 @@ impl Parser {
         self.consume_whitespace();
 
         let text = self.parse_text();
-        create_html_element(tostr!("li"), text)
+        create_unordered_list(tostr!("li"), text)
     }
 
     /// Checks if character preceding `-` or `*` is whitespace or text
