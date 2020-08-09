@@ -10,15 +10,15 @@
 ## Install
 
 ```sh
+cd www
+
 npm install
 ```
 
 ## Usage
 
 ```sh
-npm run build
-
-npm run serve
+./start
 ```
 
 ## Author
