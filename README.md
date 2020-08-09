@@ -9,6 +9,10 @@
 >
 > Will only parse the `#`, `-` and `*` symbols
 
+<div align="center">
+  <img src="./img.png" alt="preview">
+</div>
+
 ## Install
 
 ```sh
