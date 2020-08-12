@@ -54,8 +54,8 @@ module.exports = {
       template: "./index.html",
     }),
     new CopyWebpackPlugin(["index.html"]),
-    new WasmPackPlugin({	
-      crateDirectory: path.resolve(__dirname, "..")	
-  }),
+  //   new WasmPackPlugin({	
+  //     crateDirectory: path.resolve(__dirname, "..")	
+  // }),
   ],
 };
