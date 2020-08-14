@@ -31,6 +31,7 @@ const App = () => {
           value={text}
           placeholder="Write some markdown"
         ></textarea>
+        <br />
         <div className="output" dangerouslySetInnerHTML={{ __html: output }} />
       </div>
     </>
