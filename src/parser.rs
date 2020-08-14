@@ -10,7 +10,8 @@
 /// If we find a string with a `#` sign, we wrap it in a `<h1>` tag.
 
 use macroz::tostr;
-use crate::render::*;
+use crate::html::*;
+use super::utils::*;
 
 struct Parser {
     position: usize,
@@ -94,6 +95,7 @@ impl Parser {
             '#' => self.parse_title(),
             '-' => self.check_li_char(),
             '*' => self.check_li_char(),
+            '>' => self.parse_block_quote(),
             _ => self.parse_text(),
         }
     }
@@ -106,6 +108,14 @@ impl Parser {
 
         create_html_element(format!("h{}", pound_sign.len()), text)
     }
+
+    fn parse_block_quote(&mut self) -> String {
+        self.consume_char();
+        self.consume_whitespace();
+        
+        let text = self.parse_text();
+        create_block_quote(tostr!("blockquote"), text)
+    } 
 
     /// Parses the `-` sign to create a list
     fn parse_unordered_list(&mut self) -> String {
