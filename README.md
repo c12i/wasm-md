@@ -8,6 +8,11 @@
 > A simple Rust Web Assembly Markdown parser built in combination with a React application importing the complied wasm-pack package that handles the parsing.
 >
 > Will only parse the `#`, `-` and `*` symbols, more to come...
+> 
+> Prerequisites:
+> * Rust and cargo
+> * wasm-pack
+> * node and npm/ yarn
 
 <div align="center">
   <img src="./img.png" alt="preview">
@@ -19,15 +24,15 @@
 ./scripts/install
 ```
 
+## Compile/ Build
+```sh
+./scripts/build
+```
+
 ## Usage
 
 ```sh
 ./scripts/start
-```
-
-## Compile/ Build
-```sh
-./scripts/build
 ```
 
 ## Author
