@@ -65,7 +65,10 @@ impl Parser {
 
 /// Creates html elements
 fn create_html_element(tag_name: String, text: String) -> String {
-    format!("<{}>{}<{}/>", tag_name, text, tag_name)
+    format!("
+    <div>
+        <{}>{}<{}/>
+    </div>", tag_name, text, tag_name)
 }
 
 fn create_unordered_list(tag_name: String, text: String) -> String {
