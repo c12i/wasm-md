@@ -5,7 +5,7 @@
   </a>
 </p>
 
-> A simple Rust Web Assembly Markdown parser
+> A simple Rust Web Assembly Markdown parser built in combination with a React application importing the complied wasm-pack package that handles the parsing.
 >
 > Will only parse the `#`, `-` and `*` symbols
 
