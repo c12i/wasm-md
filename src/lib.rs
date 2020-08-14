@@ -1,5 +1,6 @@
 #[allow(dead_code)]
 mod parser;
+mod render;
 
 use wasm_bindgen::prelude::*;
 use macroz::tostr;

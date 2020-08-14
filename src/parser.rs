@@ -10,6 +10,7 @@
 /// If we find a string with a `#` sign, we wrap it in a `<h1>` tag.
 
 use macroz::tostr;
+use crate::render::*;
 
 struct Parser {
     position: usize,
@@ -63,29 +64,7 @@ impl Parser {
     }
 }
 
-/// Creates html elements
-fn create_html_element(tag_name: String, text: String) -> String {
-    format!("
-    <div>
-        <{}>{}<{}/>
-    </div>", tag_name, text, tag_name)
-}
-
-fn create_unordered_list(tag_name: String, text: String) -> String {
-    format!("
-        <ul>
-            <{}>
-                {}
-            </{}>
-        </ul>
-    ", tag_name, text, tag_name)
-}
-
-/// Check if we are currently in a new line
-fn is_new_line(c: char) -> bool {
-    c == '\n'
-}
-
+/// Parse logic
 impl Parser {
     fn parse_lines(&mut self) -> String {
         let mut result = String::new();
