@@ -16,20 +16,18 @@
 ## Install
 
 ```sh
-cd www
-
-npm install
+./scripts/install
 ```
 
 ## Usage
 
 ```sh
-./start
+./scripts/start
 ```
 
-## Compile Rust to Wasm
+## Compile/ Build
 ```sh
-wasm-pack build
+./scripts/build
 ```
 
 ## Author
